@@ -15,12 +15,12 @@ export class CardsComponent implements OnInit {
 
   ngOnInit(): void {
     let images = [
-      "chandler",
-      "joey",
-      "monica",
-      "phoebe",
-      "rachel",
-      "ross"
+      "../../../assets/chandler.png",
+      "../../../assets/joey.png",
+      "../../../assets/monica.png",
+      "../../../assets/phoebe.png",
+      "../../../assets/rachel.png",
+      "../../../assets/ross.png"
     ]
     for (let i = 0; i < 12; i++) {
       let id = this.getId();
