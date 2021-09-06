@@ -8,7 +8,7 @@ import {Card} from "../../Card";
 })
 export class CardsComponent implements OnInit {
   cards: Card[] = [];
-  isAvailable: boolean[] = [true, true, true, true, true, true, true, true, true, true, true, true];
+  availableCount: number[] = [2, 2, 2, 2, 2, 2];
 
   constructor() {
   }
@@ -22,19 +22,20 @@ export class CardsComponent implements OnInit {
       "rachel",
       "ross"
     ]
-    for (let i = 0; i < 6; i++) {
-      this.cards.push(new Card(i, images[i], this.getPlace()));
-      this.cards.push(new Card(i, images[i], this.getPlace()));
+    for (let i = 0; i < 12; i++) {
+      let id = this.getId();
+      let card: Card = new Card(id, images[id]);
+      this.cards.push(card);
     }
     //console.log(this.cards);
   }
 
-  getPlace(): number {
-    let place;
+  getId(): number {
+    let id;
     do {
-      place = Math.floor(Math.random() * 13);
-    } while (!this.isAvailable[place]);
-    this.isAvailable[place] = false;
-    return place;
+      id = Math.floor(Math.random() * 6);
+    } while (this.availableCount[id] < 1);
+    this.availableCount[id]--;
+    return id;
   }
 }

@@ -7,7 +7,7 @@ import {Card} from "../../Card";
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
-  @Input() card: Card=new Card(0,"",0);
+  @Input() card: Card=new Card(0,"");
 
   constructor() { }
 
