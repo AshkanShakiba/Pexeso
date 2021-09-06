@@ -26,7 +26,7 @@ export class CardsComponent implements OnInit {
       this.cards.push(new Card(i, images[i], this.getPlace()));
       this.cards.push(new Card(i, images[i], this.getPlace()));
     }
-    console.log(this.cards);
+    //console.log(this.cards);
   }
 
   getPlace(): number {
