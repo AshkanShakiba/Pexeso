@@ -1,10 +1,11 @@
-<div class="flip-card">
+<!--suppress AngularUndefinedBinding -->
+<div class="flip-card" (onclick)="flip()">
   <div class="flip-card-inner">
     <div class="flip-card-front">
       <div class="image backside"></div>
     </div>
     <div class="flip-card-back">
-      <div class="image" style="background-image: none;"></div>
+      <div class="image" style="background-image: url('{{card.img}}')"></div>
     </div>
   </div>
 </div>

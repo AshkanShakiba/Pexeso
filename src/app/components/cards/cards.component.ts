@@ -27,7 +27,6 @@ export class CardsComponent implements OnInit {
       let card: Card = new Card(id, images[id]);
       this.cards.push(card);
     }
-    //console.log(this.cards);
   }
 
   getId(): number {
