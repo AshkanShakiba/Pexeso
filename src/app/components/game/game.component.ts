@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-game',
@@ -6,10 +6,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./game.component.scss']
 })
 export class GameComponent implements OnInit {
+  isGameFinishedVariable: boolean;
 
-  constructor() { }
+  constructor() {
+    this.isGameFinishedVariable = false;
+  }
 
   ngOnInit(): void {
   }
 
+  reset(): void {
+
+  }
+
+  finish(): void {
+    this.isGameFinishedVariable = true;
+  }
+
+  isGameFinished(): boolean {
+    return this.isGameFinishedVariable;
+  }
 }

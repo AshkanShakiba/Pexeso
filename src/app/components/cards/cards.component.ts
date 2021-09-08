@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Card} from "../../Card";
 import {timer} from "rxjs";
 
@@ -8,10 +8,16 @@ import {timer} from "rxjs";
   styleUrls: ['./cards.component.scss']
 })
 export class CardsComponent implements OnInit {
-  cards: Card[] = [];
-  availableCount: number[] = [2, 2, 2, 2, 2, 2];
+  cards: Card[];
+  availableCount: number[];
+  foundCards: number;
+  @Output() isGameFinished: EventEmitter<any>;
 
   constructor() {
+    this.cards = [];
+    this.availableCount = [2, 2, 2, 2, 2, 2];
+    this.foundCards = 0;
+    this.isGameFinished=new EventEmitter();
   }
 
   ngOnInit(): void {
@@ -50,12 +56,16 @@ export class CardsComponent implements OnInit {
       if (selectedCards[0].id == selectedCards[1].id) {
         selectedCards[0].find();
         selectedCards[1].find();
+        this.foundCards += 2;
       } else {
-        timer(500).subscribe(x => {
+        timer(500).subscribe(() => {
           selectedCards[0].flip();
           selectedCards[1].flip();
         });
       }
+    }
+    if(this.foundCards==12){
+      this.isGameFinished.emit();
     }
   }
 }

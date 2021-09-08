@@ -1,21 +1,26 @@
 .button {
-  display: inline-block;
-  background: #000;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  margin: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 15px;
-  font-family: inherit;
+  width: 6%;
+  padding: 1%;
+  color: white;
+  border-radius: 111rem;
+  border: 3px solid white;
+  font-family: "Comic Sans MS", sans-serif;
+  font-weight: bold;
+  position: fixed;
+  bottom: 0;
+  left: 45%;
+}
 
-  &:focus {
-    outline: none;
+@media (min-width: 800px) {
+  .button{
+    padding: 0.75%;
+    left: 45.75%;
   }
+}
 
-  &:active {
-    transform: scale(0.98);
+@media (min-width: 1200px) {
+  .button{
+    padding: 0.5%;
+    left: 46.5%;
   }
 }

@@ -1,1 +1,2 @@
-<app-cards></app-cards>
+<app-cards (isGameFinished)="finish()"></app-cards>
+<app-button text="Reset" color="tomato" (buttonClick)="reset()" *ngIf="isGameFinished()"></app-button>
