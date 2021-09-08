@@ -6,24 +6,20 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./game.component.scss']
 })
 export class GameComponent implements OnInit {
-  isGameFinishedVariable: boolean;
+  isGameFinished: boolean;
 
   constructor() {
-    this.isGameFinishedVariable = false;
+    this.isGameFinished = false;
   }
 
   ngOnInit(): void {
   }
 
   reset(): void {
-
+    // TODO: gameService.initialize();
   }
 
   finish(): void {
-    this.isGameFinishedVariable = true;
-  }
-
-  isGameFinished(): boolean {
-    return this.isGameFinishedVariable;
+    this.isGameFinished = true;
   }
 }

@@ -1,3 +1,3 @@
 <div id="container">
-  <br><app-card *ngFor="let card of cards" [card]="card" (checkCards)="checkCards()"></app-card>
+  <br><app-card *ngFor="let card of gameService.cards" [card]="card" (checkCards)="gameService.checkCards()"></app-card>
 </div>
