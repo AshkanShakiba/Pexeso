@@ -1,4 +1,4 @@
-import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {Card} from "../../Card";
 
 @Component({
@@ -8,16 +8,19 @@ import {Card} from "../../Card";
 })
 export class CardComponent implements OnInit {
   @Input() card: Card = new Card(0, "");
-  @ViewChild('flip_card_inner') flipCardInner:ElementRef=new ElementRef<any>("");
+  @ViewChild('flip_card_inner') flipCardInner: ElementRef = new ElementRef<any>("");
+  @Output() checkCards: EventEmitter<any> = new EventEmitter();
 
   constructor() {
   }
 
   ngOnInit(): void {
+    this.card.addComponent(this);
+
   }
 
-  flip(): void {
-    this.card.angle += 180;
-    this.flipCardInner.nativeElement.style.transform=`rotateY(${this.card.angle}deg)`
+  update(): void {
+    this.checkCards.emit();
+    this.flipCardInner.nativeElement.style.transform = `rotateY(${this.card.angle}deg)`
   }
 }

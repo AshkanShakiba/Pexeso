@@ -37,4 +37,25 @@ export class CardsComponent implements OnInit {
     this.availableCount[id]--;
     return id;
   }
+
+  checkCards(): void {
+    console.log("checkCards();")
+    let selectedCards: Card[] = [];
+    for (let card of this.cards) {
+      if (card.isFlipped) {
+        selectedCards.push(card);
+        console.log(card.img);
+      }
+    }
+    if(selectedCards.length==2){
+      if(selectedCards[0].id==selectedCards[1].id){
+        selectedCards[0].find();
+        selectedCards[1].find();
+      }
+      else {
+        selectedCards[0].flip();
+        selectedCards[1].flip();
+      }
+    }
+  }
 }
