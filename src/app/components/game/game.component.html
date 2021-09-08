@@ -1,2 +1,2 @@
-<app-cards (gameFinishEmitter)="finish()"></app-cards>
+<app-cards (gameFinishEmitter)="finish($event)"></app-cards>
 <app-button text="Reset" color="tomato" (buttonClick)="reset()" *ngIf="isGameFinished"></app-button>

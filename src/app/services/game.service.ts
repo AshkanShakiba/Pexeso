@@ -10,15 +10,13 @@ export class GameService {
   availableCount: number[];
   foundCards: number;
   gameFinishEmitter: any;
+  images: string[];
 
   constructor() {
     this.cards = [];
-    this.availableCount = [2, 2, 2, 2, 2, 2];
+    this.availableCount = [];
     this.foundCards = 0;
-  }
-
-  initialize(gameFinishEmitter: EventEmitter<any>) {
-    let images = [
+    this.images = [
       "../../../assets/chandler.png",
       "../../../assets/joey.png",
       "../../../assets/monica.png",
@@ -26,12 +24,10 @@ export class GameService {
       "../../../assets/rachel.png",
       "../../../assets/ross.png"
     ]
-    for (let i = 0; i < 12; i++) {
-      let id = this.getId();
-      let card: Card = new Card(id, images[id]);
-      this.cards.push(card);
-    }
-    this.gameFinishEmitter=gameFinishEmitter;
+  }
+
+  addEventEmitter(gameFinishEmitter: EventEmitter<any>) {
+    this.gameFinishEmitter = gameFinishEmitter;
   }
 
   getId(): number {
@@ -41,6 +37,17 @@ export class GameService {
     } while (this.availableCount[id] < 1);
     this.availableCount[id]--;
     return id;
+  }
+
+  startGame(): void {
+    this.cards = [];
+    this.foundCards = 0;
+    this.availableCount = [2, 2, 2, 2, 2, 2];
+    for (let i = 0; i < 12; i++) {
+      let id = this.getId();
+      let card: Card = new Card(id, this.images[id]);
+      this.cards.push(card);
+    }
   }
 
   checkCards(): void {
@@ -63,7 +70,7 @@ export class GameService {
       }
     }
     if (this.foundCards == 12) {
-      this.gameFinishEmitter.emit();
+      this.gameFinishEmitter.emit(this);
     }
   }
 }

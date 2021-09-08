@@ -22,6 +22,7 @@ export class CardsComponent implements OnInit {
   }
 
   startGame(): void {
-    this.gameService.initialize(this.gameFinishEmitter);
+    this.gameService.addEventEmitter(this.gameFinishEmitter);
+    this.gameService.startGame();
   }
 }

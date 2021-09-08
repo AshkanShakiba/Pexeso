@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {GameService} from "../../services/game.service";
 
 @Component({
   selector: 'app-game',
@@ -7,6 +8,7 @@ import {Component, OnInit} from '@angular/core';
 })
 export class GameComponent implements OnInit {
   isGameFinished: boolean;
+  gameService: any;
 
   constructor() {
     this.isGameFinished = false;
@@ -16,10 +18,11 @@ export class GameComponent implements OnInit {
   }
 
   reset(): void {
-    // TODO: gameService.initialize();
+    this.gameService.startGame();
   }
 
-  finish(): void {
+  finish(gameService: GameService): void {
+    this.gameService = gameService;
     this.isGameFinished = true;
   }
 }
