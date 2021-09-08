@@ -1,6 +1,4 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {Card} from "../../Card";
-import {timer} from "rxjs";
 import {GameService} from "../../services/game.service";
 
 @Component({

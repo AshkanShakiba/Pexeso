@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {GameService} from "../../services/game.service";
+import {timer} from "rxjs";
 
 @Component({
   selector: 'app-game',
@@ -18,7 +19,11 @@ export class GameComponent implements OnInit {
   }
 
   reset(): void {
-    this.gameService.startGame();
+    this.gameService.flipAll();
+    timer(650).subscribe(() => {
+      this.gameService.startGame();
+      this.isGameFinished = false;
+    });
   }
 
   finish(gameService: GameService): void {

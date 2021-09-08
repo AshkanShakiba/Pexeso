@@ -21,8 +21,9 @@ export class Card {
     this.component = component;
   }
 
-  flip(): void {
-    if (!this.isFound) {
+  flip(force: boolean): void {
+    if (!this.isFound || force) {
+      console.log("Doing...");
       this.angle += 180;
       this.isFlipped = !this.isFlipped;
       this.component.update();

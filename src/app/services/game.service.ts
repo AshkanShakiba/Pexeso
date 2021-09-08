@@ -64,13 +64,19 @@ export class GameService {
         this.foundCards += 2;
       } else {
         timer(500).subscribe(() => {
-          selectedCards[0].flip();
-          selectedCards[1].flip();
+          selectedCards[0].flip(false);
+          selectedCards[1].flip(false);
         });
       }
     }
     if (this.foundCards == 12) {
       this.gameFinishEmitter.emit(this);
+    }
+  }
+
+  flipAll(): void {
+    for(let card of this.cards){
+      card.flip(true);
     }
   }
 }
