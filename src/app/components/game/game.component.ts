@@ -20,9 +20,9 @@ export class GameComponent implements OnInit {
 
   reset(): void {
     this.gameService.flipAll();
+    this.isGameFinished = false;
     timer(650).subscribe(() => {
       this.gameService.startGame();
-      this.isGameFinished = false;
     });
   }
 

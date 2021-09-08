@@ -7,6 +7,7 @@ import { CardsComponent } from './components/cards/cards.component';
 import { GameComponent } from './components/game/game.component';
 import { CardComponent } from './components/card/card.component';
 import { ButtonComponent } from './components/button/button.component';
+import { RotateDeviceComponent } from './components/rotate-device/rotate-device.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ButtonComponent } from './components/button/button.component';
     CardsComponent,
     GameComponent,
     CardComponent,
-    ButtonComponent
+    ButtonComponent,
+    RotateDeviceComponent
   ],
   imports: [
     BrowserModule,
